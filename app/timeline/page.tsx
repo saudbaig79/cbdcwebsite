@@ -1,31 +1,3 @@
-import { fetchHistory, formatMonthYear } from "@/lib/cbdc-api"
-import { TimelineFeed } from "@/components/timeline-feed"
-
-export const revalidate = 120
-
-export const metadata = {
-  title: "Timeline — CBDC Tracker",
-  description: "A chronological log of every change to tracked CBDC records.",
-}
-
-const PAGE_SIZE = 12
-
-export default async function TimelinePage() {
-  const data = await fetchHistory(0, PAGE_SIZE).catch(() => null)
-  const lastUpdate = data?.content[0]
-
-  return (
-    <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mb-8 flex flex-col gap-2 border-b border-border pb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-foreground">Timeline</h1>
-        <p className="text-sm text-muted-foreground">
-          {lastUpdate ? `Last update: ${formatMonthYear(lastUpdate.month, lastUpdate.year)}` : "Timeline is temporarily unavailable."}
-        </p>
-      </div>
-
-      {data && (
-        <TimelineFeed initialEntries={data.content} initialPage={data.number} totalPages={data.totalPages} pageSize={PAGE_SIZE} />
-      )}
-    </main>
-  )
-}
+import { ContentPage, ContentSection } from "@/components/content-page"
+const dates=[['Oct 2020','The Bahamas launches the Sand Dollar, the first national CBDC.'],['Oct 2021','Nigeria launches the eNaira.'],['Jun 2022','JAM-DEX becomes legal tender in Jamaica.'],['Feb 2023','Bank of England and HM Treasury consult on a digital pound.'],['28 Jun 2023','European Commission proposes the digital euro regulation.'],['Jan 2025','US executive order halts work on a federal CBDC.'],['17 Jul 2025','US House passes the Anti-CBDC Surveillance State Act.'],['Aug 2025','Digital Pound Lab opens. Brazil drops blockchain for Drex phase one.'],['Oct 2025','ECB closes the digital euro preparation phase and sets a 2029 target.'],['1 Jan 2026','China’s e-CNY becomes interest-bearing.'],['23 Jun 2026','European Parliament ECON committee backs the digital euro, 43 to 14.'],['9 Jul 2026','Parliament plenary approves trilogue talks, 416 to 169.'],['Late 2026','Target for digital euro trilogue agreement. UK decision on next steps for the digital pound.'],['2027','Possible digital euro pilot with selected payment providers.'],['2029','Earliest first issuance of the digital euro, if legislation is in place.']]
+export default function TimelinePage(){return <ContentPage eyebrow="Key dates" title="How we got here, and what comes next"><div className="relative border-l border-primary/30 pl-7">{dates.map(([date,event])=><div key={date} className="relative pb-8 last:pb-0"><span className="absolute -left-[2.05rem] top-1 size-3 rounded-full bg-primary ring-4 ring-background"/><p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">{date}</p><p className="mt-2 text-base leading-7 text-foreground">{event}</p></div>)}</div><ContentSection title="Keep track of changes"><p>CBDC programmes move quickly. Check the World Tracker for live country-by-country statuses and project updates.</p></ContentSection></ContentPage>}
