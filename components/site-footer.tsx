@@ -75,11 +75,11 @@ export function SiteFooter() {
             <h2 className="mt-6 text-xs font-semibold uppercase tracking-wide text-foreground">Contacts</h2>
             <div className="mt-3 flex flex-col gap-2">
               <a
-                href="mailto:hello@cbdctracker.org"
+                href="mailto:info@cdbc.ac"
                 className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground"
               >
                 <Mail className="size-3.5" />
-                hello@cbdctracker.org
+                info@cdbc.ac
               </a>
               <a
                 href="https://t.me/joinchat/zyy_CB7AEMtkODlk"
@@ -131,9 +131,9 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-border/60 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>MIT License, free for reproduction and distribution</p>
-          <p className="font-mono">CBDC Tracker © 2021-2023</p>
+        <div className="flex flex-col gap-2 border-t border-border/60 pt-6 text-xs leading-relaxed text-muted-foreground">
+          <p className="font-medium text-foreground">CBDC LLC · Company No. 002064943 · 5830 E 2ND ST, STE 7000, CASPER, WY 82609</p>
+          <p>CBDC is an independent information resource. It is not affiliated with any central bank or government. Content is general information, not financial, investment or legal advice.</p>
         </div>
       </div>
     </footer>
