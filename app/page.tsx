@@ -1,180 +1,64 @@
 import Link from "next/link"
-import { ArrowUpRight, Landmark, Newspaper, History } from "lucide-react"
-import { fetchCurrencies, fetchHistory, fetchNews, formatDate, STATUS_LIST, type CbdcStatus } from "@/lib/cbdc-api"
-import { WorldMap } from "@/components/world-map"
-import { StatusChart } from "@/components/status-chart"
-import { StatusBadge } from "@/components/status-badge"
-import { CurrencyTable } from "@/components/currency-table"
-import { CbdcProjectInfo } from "@/components/cbdc-project-info"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { ArrowRight, BookOpen, Globe2, Landmark, ShieldCheck } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
-export const revalidate = 300
+const stats = [
+  { value: "~137", label: "countries exploring a CBDC", note: "covering about 98% of world GDP" },
+  { value: "3", label: "fully launched retail CBDCs", note: "The Bahamas, Jamaica, Nigeria" },
+  { value: "3.48bn", label: "e-CNY transactions", note: "processed in China by November 2025" },
+  { value: "2029", label: "earliest digital euro issuance", note: "if EU legislation is in place" },
+]
 
-export default async function DashboardPage() {
-  const [currencies, history, news] = await Promise.all([
-    fetchCurrencies().catch(() => []),
-    fetchHistory(0, 5).catch(() => null),
-    fetchNews(0, 5).catch(() => null),
-  ])
+export const metadata = {
+  title: "CBDC LLC | Plain-English Digital Currency Intelligence",
+  description: "Independent, plain-English information about central bank digital currencies and where each programme stands.",
+}
 
-  const counts = STATUS_LIST.reduce(
-    (acc, status) => {
-      acc[status] = currencies.filter((c) => c.status === status).length
-      return acc
-    },
-    {} as Record<CbdcStatus, number>,
-  )
-
-  const countryCount = new Set(currencies.map((c) => c.country)).size
-
+export default function HomePage() {
   return (
-    <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <section className="mb-10 flex flex-col gap-3">
-        <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-          <Landmark className="size-3.5" />
-          Live global intelligence
-        </span>
-        <h1 className="max-w-2xl text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Today&apos;s Central Bank Digital Currencies Status
-        </h1>
-        <p className="max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">
-          Monitoring {currencies.length} CBDC projects across {countryCount} countries — from early research to
-          full-scale launch.
-        </p>
-      </section>
-
-      <section className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-        {STATUS_LIST.map((status) => (
-          <Card key={status} className="gap-2 py-4">
-            <CardContent className="px-4">
-              <p className="font-mono text-2xl font-semibold tabular-nums text-foreground">{counts[status]}</p>
-              <p className="mt-1 text-xs text-muted-foreground">{status}</p>
+    <main>
+      <section className="border-b border-border/70 bg-gradient-to-b from-primary/10 via-background to-background">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.1fr_.9fr] lg:px-8 lg:py-28">
+          <div className="flex flex-col items-start justify-center">
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary">
+              <Landmark className="size-3.5" />
+              CBDC LLC · independent information resource
+            </span>
+            <h1 className="max-w-3xl text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
+              Your plain guide to digital central bank money.
+            </h1>
+            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+              A central bank digital currency is a digital form of a country&apos;s official money, issued directly by its central bank. CBDC LLC explains what they are, where each country stands, and what the shift could mean for you, your savings, and your business.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button size="lg" render={<Link href="/tracker" />} nativeButton={false}>
+                Explore the World Tracker <ArrowRight data-icon="inline-end" />
+              </Button>
+              <Button size="lg" variant="outline" render={<Link href="/what-is-a-cbdc" />} nativeButton={false}>
+                What is a CBDC?
+              </Button>
+            </div>
+          </div>
+          <Card className="overflow-hidden border-primary/20 bg-card/80 shadow-2xl shadow-primary/5">
+            <CardContent className="p-6 sm:p-8">
+              <div className="flex items-center gap-3 border-b border-border/70 pb-5">
+                <div className="flex size-11 items-center justify-center rounded-xl bg-primary/15 text-primary"><Globe2 className="size-5" /></div>
+                <div><p className="font-semibold text-foreground">The world is moving</p><p className="text-sm text-muted-foreground">Research, pilots, launches, and legislation</p></div>
+              </div>
+              <div className="grid gap-4 pt-6 sm:grid-cols-2">
+                {stats.map((stat) => <div key={stat.label} className="rounded-lg border border-border/70 bg-background/60 p-4"><p className="font-mono text-2xl font-semibold text-primary">{stat.value}</p><p className="mt-1 text-sm font-medium text-foreground">{stat.label}</p><p className="mt-1 text-xs leading-relaxed text-muted-foreground">{stat.note}</p></div>)}
+              </div>
+              <p className="mt-6 text-xs text-muted-foreground">Figures and statuses reviewed 14 October 2026. They can change quickly.</p>
             </CardContent>
           </Card>
-        ))}
+        </div>
       </section>
 
-      <section className="mb-8 grid gap-4 lg:grid-cols-3">
-        <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle>Global status map</CardTitle>
-            <CardDescription>Hover a country to see its CBDC status. Click to view details.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <WorldMap currencies={currencies} />
-            <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground">
-              {STATUS_LIST.map((status) => (
-                <span key={status} className="inline-flex items-center gap-1.5">
-                  <StatusBadge status={status} />
-                </span>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Status distribution</CardTitle>
-            <CardDescription>Share of tracked projects by stage</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <StatusChart counts={counts} />
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="mb-8">
-        <Card>
-          <CardHeader>
-            <CardTitle>All tracked currencies</CardTitle>
-            <CardDescription>Search, filter, and drill into every tracked CBDC initiative</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <CurrencyTable currencies={currencies} />
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="mb-8 grid gap-4 lg:grid-cols-2">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <div>
-              <CardTitle className="flex items-center gap-2">
-                <History className="size-4 text-primary" />
-                Latest updates
-              </CardTitle>
-              <CardDescription>Recent changes to tracked projects</CardDescription>
-            </div>
-            <Button variant="ghost" size="sm" render={<Link href="/timeline" />} nativeButton={false}>
-              View all
-              <ArrowUpRight data-icon="inline-end" />
-            </Button>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-4">
-            {history?.content.length ? (
-              history.content.map((entry, i) => (
-                <div key={i} className="border-b border-border/60 pb-3 last:border-0 last:pb-0">
-                  <p className="font-mono text-xs text-muted-foreground">
-                    {entry.year}-{String(entry.month).padStart(2, "0")}
-                  </p>
-                  {entry.tags.slice(0, 2).map((tag, j) => (
-                    <p key={j} className="mt-1 text-sm leading-relaxed text-foreground">
-                      <Link href={`/currency/${tag.tag.name}`} className="font-medium hover:text-primary">
-                        {tag.tag.currency}
-                      </Link>{" "}
-                      <span className="text-muted-foreground">
-                        — {tag.changes.length} field{tag.changes.length === 1 ? "" : "s"} updated
-                      </span>
-                    </p>
-                  ))}
-                </div>
-              ))
-            ) : (
-              <p className="text-sm text-muted-foreground">Updates are temporarily unavailable.</p>
-            )}
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <div>
-              <CardTitle className="flex items-center gap-2">
-                <Newspaper className="size-4 text-primary" />
-                Latest news
-              </CardTitle>
-              <CardDescription>Coverage from around the world</CardDescription>
-            </div>
-            <Button variant="ghost" size="sm" render={<Link href="/news" />} nativeButton={false}>
-              View all
-              <ArrowUpRight data-icon="inline-end" />
-            </Button>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-4">
-            {news?.content.length ? (
-              news.content.map((item) => (
-                <a
-                  key={item.uid}
-                  href={item.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group border-b border-border/60 pb-3 last:border-0 last:pb-0"
-                >
-                  <p className="text-sm leading-relaxed text-foreground group-hover:text-primary">{item.title}</p>
-                  <p className="mt-1 font-mono text-xs text-muted-foreground">
-                    {item.sourceName} · {formatDate(item.created)}
-                  </p>
-                </a>
-              ))
-            ) : (
-              <p className="text-sm text-muted-foreground">News is temporarily unavailable.</p>
-            )}
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="mt-8">
-        <CbdcProjectInfo />
+      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+        <Card><CardContent className="p-6"><BookOpen className="size-5 text-primary" /><h2 className="mt-4 text-lg font-semibold">Understand the basics</h2><p className="mt-2 text-sm leading-relaxed text-muted-foreground">Learn how CBDCs differ from bank deposits, stablecoins, and cryptocurrencies.</p><Link href="/what-is-a-cbdc" className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">Read the guide <ArrowRight className="size-4" /></Link></CardContent></Card>
+        <Card><CardContent className="p-6"><Globe2 className="size-5 text-primary" /><h2 className="mt-4 text-lg font-semibold">Track every programme</h2><p className="mt-2 text-sm leading-relaxed text-muted-foreground">Search 177 projects across the world, from early research to full-scale launch.</p><Link href="/tracker" className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">Open World Tracker <ArrowRight className="size-4" /></Link></CardContent></Card>
+        <Card><CardContent className="p-6"><ShieldCheck className="size-5 text-primary" /><h2 className="mt-4 text-lg font-semibold">Stay informed, not alarmed</h2><p className="mt-2 text-sm leading-relaxed text-muted-foreground">Clear context on privacy, holding limits, programmability, and what changes for businesses.</p><Link href="/getting-ready" className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">Get ready <ArrowRight className="size-4" /></Link></CardContent></Card>
       </section>
     </main>
   )
