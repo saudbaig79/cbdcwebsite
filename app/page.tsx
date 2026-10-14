@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowRight, BookOpen, Globe2, Landmark, ShieldCheck } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { VideoSection } from "@/components/video-embed"
 
 const stats = [
   { value: "~137", label: "countries exploring a CBDC", note: "covering about 98% of world GDP" },
@@ -53,6 +54,10 @@ export default function HomePage() {
             </CardContent>
           </Card>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <VideoSection title="What exactly is a digital euro?" videoId="oknlcw4Ix7Q" source="Council of the EU" duration="1:17" />
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-5 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
