@@ -13,7 +13,13 @@ const LINKS = [
   { href: "/what-is-a-cbdc", label: "What is a CBDC?" },
   { href: "/tracker", label: "World Tracker" },
   { href: "/programmes-to-watch", label: "Programmes to Watch" },
+  { href: "/cross-border", label: "Cross-border" },
   { href: "/timeline", label: "Timeline" },
+  { href: "/the-debate", label: "The Debate" },
+  { href: "/getting-ready", label: "Getting Ready" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/glossary", label: "Glossary" },
+  { href: "/about", label: "About" },
 ]
 
 export function Nav() {
