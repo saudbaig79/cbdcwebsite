@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, ArrowUpRight, CalendarDays, Mail, ShieldCheck } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, Mail, ShieldCheck } from "lucide-react"
 import type { LegalDocument } from "@/lib/legal-content"
 
 export function LegalPage({ document }: { document: LegalDocument }) {
@@ -14,8 +14,7 @@ export function LegalPage({ document }: { document: LegalDocument }) {
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{document.category}</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">{document.title}</h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">{document.description}</p>
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-              <span className="inline-flex items-center gap-2"><CalendarDays className="size-4 text-primary" aria-hidden="true" /> Last reviewed {document.reviewed}</span>
+            <div className="mt-6 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
               <span className="inline-flex items-center gap-2"><ShieldCheck className="size-4 text-primary" aria-hidden="true" /> Draft for legal review</span>
             </div>
           </header>
