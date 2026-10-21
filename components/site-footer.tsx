@@ -1,4 +1,5 @@
-import { Building2, Mail, MapPin } from "lucide-react"
+import Link from "next/link"
+import { Building2, FileText, Mail, MapPin } from "lucide-react"
 
 export function SiteFooter() {
   return (
@@ -13,6 +14,10 @@ export function SiteFooter() {
             <p className="max-w-xl text-xs leading-relaxed text-muted-foreground">
               CBDC is an independent information resource. It is not affiliated with any central bank or government. Content is general information, not financial, investment or legal advice.
             </p>
+            <Link href="/legal" className="inline-flex items-center gap-2 text-xs font-medium text-primary hover:underline">
+              <FileText className="size-4" aria-hidden="true" />
+              Legal Centre
+            </Link>
           </div>
 
           <div className="grid gap-3 text-xs text-muted-foreground sm:grid-cols-2 md:grid-cols-1">
