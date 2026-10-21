@@ -18,7 +18,7 @@ export default function LegalCentrePage() {
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         <div className="rounded-xl border border-border bg-card p-5"><BookOpen className="size-5 text-primary" aria-hidden="true" /><h2 className="mt-4 font-semibold text-foreground">Plain language</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">Practical explanations of how the service works and what its content means.</p></div>
         <div className="rounded-xl border border-border bg-card p-5"><ShieldCheck className="size-5 text-primary" aria-hidden="true" /><h2 className="mt-4 font-semibold text-foreground">Independent research</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">Standards for sourcing, classification, corrections, and editorial judgement.</p></div>
-        <div className="rounded-xl border border-border bg-card p-5"><FileText className="size-5 text-primary" aria-hidden="true" /><h2 className="mt-4 font-semibold text-foreground">Reviewed documents</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">Each document shows its last review date and remains subject to legal review.</p></div>
+        <div className="rounded-xl border border-border bg-card p-5"><FileText className="size-5 text-primary" aria-hidden="true" /><h2 className="mt-4 font-semibold text-foreground">Clear policies</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">Practical policies covering privacy, cookies, terms, and responsible research.</p></div>
       </div>
       <div className="mt-14 space-y-12">
         {legalCentreCategories.map((category) => (
@@ -28,7 +28,7 @@ export default function LegalCentrePage() {
               {category.slugs.map((slug) => {
                 const document = legalDocuments.find((item) => item.slug === slug)
                 if (!document) return null
-                return <Link key={slug} href={`/${slug}`} className="group rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/50 hover:bg-primary/5"><div className="flex items-start justify-between gap-4"><div><h3 className="font-semibold text-foreground">{document.title}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{document.description}</p></div><ArrowRight className="mt-1 size-4 shrink-0 text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" /></div><p className="mt-4 text-xs text-muted-foreground">Last reviewed {document.reviewed}</p></Link>
+                return <Link key={slug} href={`/${slug}`} className="group rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/50 hover:bg-primary/5"><div className="flex items-start justify-between gap-4"><div><h3 className="font-semibold text-foreground">{document.title}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{document.description}</p></div><ArrowRight className="mt-1 size-4 shrink-0 text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" /></div></Link>
               })}
             </div>
           </section>
