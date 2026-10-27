@@ -1,7 +1,7 @@
 import { WatchlistView } from "@/components/watchlist-view"
 
 export const metadata = {
-  title: "Watchlist — CBDC Tracker",
+  title: "Watchlist — CBDC LLC",
   description: "Track your starred CBDC initiatives and get notified of changes.",
 }
 

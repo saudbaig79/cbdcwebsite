@@ -11,9 +11,9 @@ const _geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const _geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'CBDC Tracker — Central Bank Digital Currency Intelligence',
+  title: 'CBDC LLC — Independent Digital-Currency Research',
   description:
-    'Track the status of every Central Bank Digital Currency initiative worldwide — launches, pilots, research, and cancellations across every country and central bank.',
+    'CBDC LLC is an independent digital-currency research and information company publishing plain-English guides, country and project trackers, and updates.',
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',

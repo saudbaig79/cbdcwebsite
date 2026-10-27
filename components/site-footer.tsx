@@ -1,46 +1,53 @@
-import Link from "next/link"
-import { Building2, FileText, Mail, MapPin } from "lucide-react"
+import { Building2, Mail, MapPin } from "lucide-react"
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/80 bg-card/30">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(18rem,28rem)] md:items-start">
-          <div className="space-y-4">
-            <div>
-              <p className="text-sm font-semibold tracking-tight text-foreground">CBDC LLC</p>
-              <p className="mt-1 text-xs text-muted-foreground">Independent digital currency research and information</p>
-            </div>
-            <p className="max-w-xl text-xs leading-relaxed text-muted-foreground">
-              CBDC is an independent information resource. It is not affiliated with any central bank or government. Content is general information, not financial, investment or legal advice.
-            </p>
-            <Link href="/legal" className="inline-flex items-center gap-2 text-xs font-medium text-primary hover:underline">
-              <FileText className="size-4" aria-hidden="true" />
-              Legal Centre
-            </Link>
-          </div>
-
-          <div className="grid gap-3 text-xs text-muted-foreground sm:grid-cols-2 md:grid-cols-1">
-            <div className="flex items-start gap-3">
-              <Building2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-              <div>
-                <p className="font-medium text-foreground">CBDC LLC</p>
-                <p className="mt-0.5">Company No. 002064943</p>
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[minmax(16rem,0.85fr)_minmax(0,1.5fr)] lg:items-center">
+          <div className="grid gap-4">
+            <div className="flex items-center gap-3">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary" aria-hidden="true">
+                <Building2 className="size-4 text-primary" />
+              </span>
+              <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                <p className="text-sm font-semibold text-foreground">CBDC LLC</p>
+                <p className="font-mono text-xs text-muted-foreground">Company No. 2026-002064943</p>
               </div>
             </div>
+
             <div className="flex items-start gap-3">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-              <address className="not-italic leading-relaxed">5830 E 2ND ST, STE 7000<br />CASPER, WY 82609</address>
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary" aria-hidden="true">
+                <MapPin className="size-4 text-primary" />
+              </span>
+              <address className="not-italic text-sm leading-6 text-muted-foreground">
+                5830 E 2nd St, Ste 7000 #38378
+                <br />
+                Casper, WY 82609, USA
+              </address>
             </div>
-            <div className="flex items-center gap-3 sm:col-span-2 md:col-span-1">
-              <Mail className="size-4 shrink-0 text-primary" aria-hidden="true" />
-              <a className="font-medium text-primary underline-offset-4 hover:underline" href="mailto:info@cbdc.ac">info@cbdc.ac</a>
+
+            <div className="flex items-center gap-3">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary" aria-hidden="true">
+                <Mail className="size-4 text-primary" />
+              </span>
+              <a
+                className="text-sm font-medium text-primary underline-offset-4 hover:underline"
+                href="mailto:info@cbdc.ac"
+              >
+                info@cbdc.ac
+              </a>
             </div>
           </div>
-        </div>
 
-        <div className="mt-8 border-t border-border/70 pt-4 text-[11px] text-muted-foreground">
-          <p>CBDC LLC · Company No. 002064943 · Casper, Wyoming</p>
+          <div className="grid gap-4 border-t border-border pt-6 text-xs leading-6 text-muted-foreground sm:grid-cols-2 lg:border-l lg:border-t-0 lg:py-2 lg:pl-8">
+            <p>
+              CBDC is an independent information resource. It is not affiliated with any central bank or government. Content is general information, not financial, investment or legal advice.
+            </p>
+            <p>
+              CBDC LLC does not issue, sell, exchange, hold or transmit any digital currency, cryptoasset or token, and does not handle client funds.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

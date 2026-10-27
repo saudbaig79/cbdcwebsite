@@ -12,7 +12,7 @@ export type LegalDocument = {
   sections: LegalSection[]
 }
 
-const contact = "CBDC LLC, Company No. 002064943, 5830 E 2ND ST, STE 7000, CASPER, WY 82609. Contact: info@cbdc.ac."
+const contact = "CBDC LLC, Company No. 2026-002064943, 5830 E 2nd St, Ste 7000 #38378, Casper, WY 82609, USA. Contact: info@cbdc.ac."
 
 export const legalDocuments: LegalDocument[] = [
   {
