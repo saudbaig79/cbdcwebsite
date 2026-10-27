@@ -27,6 +27,12 @@ type NavGroup = {
   links: NavLinkItem[]
 }
 
+const LEGAL_LINK: NavLinkItem = {
+  href: "/legal",
+  label: "Legal Centre",
+  description: "Policies, standards, and practical information.",
+}
+
 const NAV_GROUPS: NavGroup[] = [
   {
     label: "Learn",
@@ -96,6 +102,7 @@ export function Nav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const homeActive = pathname === "/"
+  const legalActive = isExactPageActive(pathname, LEGAL_LINK.href)
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/80 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/75">
@@ -167,6 +174,21 @@ export function Nav() {
                 </NavigationMenuItem>
               )
             })}
+
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                render={<Link href={LEGAL_LINK.href} />}
+                active={legalActive}
+                closeOnClick
+                aria-current={legalActive ? "page" : undefined}
+                className={cn(
+                  "h-9 rounded-lg px-3 text-sm font-medium",
+                  legalActive ? "bg-secondary text-foreground" : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                {LEGAL_LINK.label}
+              </NavigationMenuLink>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -200,6 +222,11 @@ export function Nav() {
                 >
                   Home
                 </Link>
+                <MobileNavLink
+                  item={LEGAL_LINK}
+                  pathname={pathname}
+                  onNavigate={() => setOpen(false)}
+                />
               </div>
 
               {NAV_GROUPS.map((group) => (

@@ -1,3 +1,5 @@
+import { Building2, Mail, MapPin } from "lucide-react"
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/80 bg-card/30">
@@ -5,8 +7,8 @@ export function SiteFooter() {
         <div className="grid gap-8 lg:grid-cols-[minmax(16rem,0.85fr)_minmax(0,1.5fr)] lg:items-center">
           <div className="grid gap-4">
             <div className="flex items-center gap-3">
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary text-base" aria-hidden="true">
-                🏢
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary" aria-hidden="true">
+                <Building2 className="size-4 text-primary" />
               </span>
               <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-0.5">
                 <p className="text-sm font-semibold text-foreground">CBDC LLC</p>
@@ -15,8 +17,8 @@ export function SiteFooter() {
             </div>
 
             <div className="flex items-start gap-3">
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary text-base" aria-hidden="true">
-                📍
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary" aria-hidden="true">
+                <MapPin className="size-4 text-primary" />
               </span>
               <address className="not-italic text-sm leading-6 text-muted-foreground">
                 5830 E 2nd St, Ste 7000 #38378
@@ -26,8 +28,8 @@ export function SiteFooter() {
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary text-base" aria-hidden="true">
-                ✉️
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary" aria-hidden="true">
+                <Mail className="size-4 text-primary" />
               </span>
               <a
                 className="text-sm font-medium text-primary underline-offset-4 hover:underline"
