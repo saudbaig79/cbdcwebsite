@@ -44,9 +44,7 @@ export function SiteFooter() {
             <p>
               CBDC is an independent information resource. It is not affiliated with any central bank or government. Content is general information, not financial, investment or legal advice.
             </p>
-            <p>
-              CBDC LLC does not issue, sell, exchange, hold or transmit any digital currency, cryptoasset or token, and does not handle client funds.
-            </p>
+            <p className="text-xs">© 2026 CBDC LLC</p>
           </div>
         </div>
       </div>
