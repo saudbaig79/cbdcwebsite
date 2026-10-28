@@ -127,7 +127,7 @@ export function WorldMap({ currencies }: { currencies: Currency[] }) {
             <div className="mt-1 flex flex-col gap-0.5 text-muted-foreground">
               {hover.info.currencies.slice(0, 3).map((c) => (
                 <span key={c.uid}>
-                  {c.digitalCurrency} — {c.status}
+                  {c.digitalCurrency ?? "Name not listed"} — {c.status}
                 </span>
               ))}
             </div>

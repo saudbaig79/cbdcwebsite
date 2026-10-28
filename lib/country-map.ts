@@ -17,3 +17,7 @@ export function splitCountryNames(raw: string): string[] {
     .map((part) => NAME_OVERRIDES[part] ?? part)
     .filter((part) => !/Area|Union|OECS|ECCU|EMCCA|WAMU/i.test(part))
 }
+
+export function getMappedCountryNames(currencies: readonly { country: string }[]): string[] {
+  return [...new Set(currencies.flatMap((currency) => splitCountryNames(currency.country)))]
+}

@@ -21,6 +21,7 @@ export function SiteFooter() {
                 <MapPin className="size-4 text-primary" />
               </span>
               <address className="not-italic text-sm leading-6 text-muted-foreground">
+                <span className="mb-1 block text-xs font-medium tracking-wide text-foreground">Registered address</span>
                 5830 E 2nd St, Ste 7000 #38378
                 <br />
                 Casper, WY 82609, USA

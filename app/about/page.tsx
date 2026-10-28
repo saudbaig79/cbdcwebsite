@@ -35,7 +35,7 @@ const services = [
   {
     title: "Funding",
     description:
-      "We earn revenue through advertising and sponsored articles. This support allows us to keep the core research and tracking information free for the public.",
+      "CBDC LLC offers display advertising and sponsored content as commercial opportunities. Sponsored material is clearly labelled, and advertising or sponsorship does not determine or influence tracker classifications, status assessments, or research conclusions.",
     Icon: CircleDollarSign,
   },
 ]
@@ -97,7 +97,7 @@ export default function AboutPage() {
               <dd className="text-sm font-medium text-foreground">2026-002064943</dd>
             </div>
             <div className="grid gap-1 py-4 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-6">
-              <dt className="text-xs font-medium text-muted-foreground">Address</dt>
+              <dt className="text-xs font-medium text-muted-foreground">Registered address</dt>
               <dd className="text-sm leading-6 text-foreground">
                 5830 E 2nd St, Ste 7000 #38378, Casper, WY 82609, USA
               </dd>
@@ -136,7 +136,7 @@ export default function AboutPage() {
           </div>
           <div className="mt-4 rounded-xl border border-border/80 bg-card/50 px-4 py-3">
             <p className="text-sm leading-6 text-muted-foreground">
-              Sponsored content is clearly labelled and does not influence the tracker data or our independent research.
+              Sponsored content is clearly labelled. Advertising and sponsorship do not determine or influence the classifications, status assessments or research conclusions presented in the CBDC World Tracker.
             </p>
           </div>
         </ContentSection>

@@ -61,7 +61,7 @@ export function WatchlistView() {
                 <TableRow key={c.uid}>
                   <TableCell className="font-medium">
                     <Link href={`/currency/${c.tag}`} className="hover:text-primary">
-                      {c.digitalCurrency}
+                      {c.digitalCurrency ?? "Name not listed"}
                     </Link>
                   </TableCell>
                   <TableCell className="text-muted-foreground">{c.country}</TableCell>
