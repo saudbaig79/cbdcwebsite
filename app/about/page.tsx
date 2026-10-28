@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 const sectionLinks = [
   { href: "#founder", label: "Founder" },
   { href: "#our-role", label: "Our role" },
+  { href: "#important", label: "Important" },
   { href: "#company-details", label: "Company details" },
   { href: "#services", label: "Services & funding" },
   { href: "#advertising", label: "Advertise or sponsor" },
@@ -76,6 +77,14 @@ export default function AboutPage() {
         </ContentSection>
       </div>
 
+      <div id="important" className="scroll-mt-24">
+        <ContentSection title="Important">
+          <p className="max-w-4xl text-foreground">
+            CBDC LLC does not issue, sell, exchange, hold or transmit any digital currency, cryptoasset or token, and does not handle client funds.
+          </p>
+        </ContentSection>
+      </div>
+
       <div id="company-details" className="scroll-mt-24">
         <ContentSection title="Company details">
           <dl className="divide-y divide-border rounded-xl border border-border bg-card/50 px-5">
@@ -125,9 +134,11 @@ export default function AboutPage() {
               </Card>
             ))}
           </div>
-          <p className="mt-4 max-w-4xl text-sm leading-6 text-muted-foreground">
-            Sponsored content is clearly labelled and does not influence the tracker data or our independent research.
-          </p>
+          <div className="mt-4 rounded-xl border border-border/80 bg-card/50 px-4 py-3">
+            <p className="text-sm leading-6 text-muted-foreground">
+              Sponsored content is clearly labelled and does not influence the tracker data or our independent research.
+            </p>
+          </div>
         </ContentSection>
       </div>
 
