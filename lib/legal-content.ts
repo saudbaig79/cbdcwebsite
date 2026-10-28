@@ -42,7 +42,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Hosting and service providers",
         paragraphs: [
-          "Vercel is the deployment platform configured for this Next.js project, and public DNS for the site's connected domains routes through Vercel. The linked project has a Ready production deployment with serverless functions shown in region iad1, but its Vercel aliases do not include the site's public domains. The public site therefore could not be matched to this project's deployment, so its hosting region and exact log-retention settings remain unverified. When Vercel serves the site, it processes connection and request information needed for delivery, reliability, and security; log retention depends on the active project, plan, and settings.",
+          "Vercel provides hosting for this website and may process connection and request information needed to deliver, secure, and maintain it. Hosting-log retention depends on the active Vercel account, plan, and settings.",
           "The site requests public currency, country, history, and news data from the CBDC Tracker API at cbdctracker.org/api. The current code makes those requests from the app server. The API provider receives server request metadata, but the site does not forward a visitor's browser IP address, email, or watchlist to that API in this code path.",
           "Public MX records for cbdc.ac point to mx1.privateemail.com and mx2.privateemail.com, the routing used by Namecheap Private Email. When you email info@cbdc.ac, that mail provider handles the message and recipient address. Mailbox settings and retention are not visible in the website source.",
         ],
@@ -77,7 +77,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Retention and sharing",
         paragraphs: [
-          "The website source does not set a mailbox storage or deletion period. The mailbox provider and account settings govern retention, and no fixed period could be verified from this project. The browser watchlist remains until you clear it. Vercel hosting logs and analytics are retained according to the live provider account and plan settings, which were not available in the linked project for verification. Third-party providers apply their own retention terms to requests they receive.",
+          "The website source does not set a mailbox storage or deletion period. The mailbox provider and account settings govern retention, and no fixed period could be verified from this project. The browser watchlist remains until you clear it. Vercel hosting logs and analytics are retained according to the live provider account and plan settings. Third-party providers apply their own retention terms to requests they receive.",
           "CBDC LLC does not sell or rent personal information. The code reviewed contains no advertising network, ad pixel, or targeted-advertising SDK. Information may be processed by the hosting and analytics provider, the email service, and the video, map-CDN, and article-image providers described above. Providers may process information in countries other than your own; the exact locations and account-level safeguards are controlled by their services and could not be verified from this repository.",
         ],
       },
@@ -121,7 +121,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "What the code currently uses",
         paragraphs: [
-          "The code reviewed does not set a first-party cookie or provide a sign-in/session system. It uses browser localStorage for the watchlist, includes Vercel Analytics only in production, embeds YouTube video, and loads map and article-image resources from other providers. The currently live public site requests Vercel's Insights script through the same-origin path /_vercel/insights/script.js. The linked project has a Ready production deployment, but its Vercel aliases do not include the domains serving the public site; the public site's provider settings could not be independently confirmed from this project.",
+          "The code reviewed does not set a first-party cookie or provide a sign-in/session system. It uses browser localStorage for the watchlist, includes Vercel Analytics only in production, embeds YouTube video, and loads map and article-image resources from other providers. The currently live public site requests Vercel's Insights script through the same-origin path /_vercel/insights/script.js.",
         ],
       },
       {

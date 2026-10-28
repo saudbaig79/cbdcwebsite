@@ -7,21 +7,27 @@ import { companyDetails } from "@/lib/company-details"
 export const metadata: Metadata = {
   title: "Advertise or Sponsor — CBDC LLC",
   description:
-    "Display advertising and clearly labelled sponsored-content opportunities from CBDC LLC, with terms that protect editorial independence.",
+    "Request a quote for display advertising, clearly labelled sponsored articles, and custom sponsorship packages from CBDC LLC.",
 }
 
 const opportunities = [
   {
     label: "Display advertising",
-    title: "Relevant placements",
+    title: "Display placements",
     description:
-      "CBDC LLC offers display placements on appropriate pages as availability allows. Format, placement, schedule and any measurement are agreed in writing before a campaign begins. This page is not a rate card and does not promise impressions, traffic or results.",
+      "Display placements on relevant site pages are available by request. Format, placement, creative requirements, schedule, availability and any reporting are agreed in writing before a campaign begins. No traffic or performance is guaranteed.",
   },
   {
-    label: "Sponsored content",
+    label: "Sponsored articles and content",
     title: "Clearly disclosed partnerships",
     description:
-      "CBDC LLC accepts proposals for relevant sponsored explainers or other written resources. Accepted paid content will be clearly labelled as Sponsored or Advertisement and will identify the sponsor. Sponsorship does not influence CBDC World Tracker classifications, status assessments, methodology or research conclusions.",
+      "Request a quote for relevant sponsored articles, explainers or other written resources. Accepted paid content will be clearly labelled as Sponsored or Advertisement and will identify the sponsor. Sponsorship does not influence CBDC World Tracker classifications, status assessments, methodology or research conclusions.",
+  },
+  {
+    label: "Custom sponsorship packages",
+    title: "A scope tailored to your proposal",
+    description:
+      "Request a quote for a package combining available display placements and clearly labelled sponsored content. Scope, formats, schedule, approval process and any reporting are agreed in writing. All proposals are subject to review and availability.",
   },
 ]
 
@@ -48,7 +54,7 @@ const advertiserTerms = [
     label: "Pricing and payment",
     title: "Agreed case by case",
     description:
-      "Pricing, currency, deliverables, invoice timing, due dates, taxes, cancellation and any refund terms are set out in a written proposal or agreement. No rate, payment deadline or refund promise is created by this page; no public rate card is provided.",
+      "Pricing, currency, deliverables, invoice timing, due dates, taxes, cancellation and any refund terms are set out in a written proposal or agreement. Request a quote for current pricing; campaign scope and terms are confirmed individually in writing.",
   },
 ]
 
@@ -57,10 +63,13 @@ export default function AdvertisePage() {
     <ContentPage
       eyebrow="Commercial opportunities"
       title="Advertise or Sponsor"
-      intro="CBDC LLC offers display advertising and sponsored content opportunities to organizations whose products or services are relevant to our readers. Availability, format, schedule and terms are confirmed individually in writing."
+      intro="CBDC LLC offers display advertising, clearly labelled sponsored content, and custom sponsorship packages to organizations whose products or services are relevant to our readers. Request a quote for availability and terms."
     >
-      <ContentSection title="Opportunities">
-        <div className="grid gap-4 md:grid-cols-2">
+      <ContentSection title="Rate card">
+        <p>
+          Rates are available on request. Availability, scope, deliverables and campaign terms are confirmed individually in writing.
+        </p>
+        <div className="grid gap-4 md:grid-cols-3">
           {opportunities.map((opportunity) => (
             <InfoCard
               key={opportunity.label}
@@ -68,6 +77,19 @@ export default function AdvertisePage() {
               title={opportunity.title}
             >
               <p>{opportunity.description}</p>
+              <Button
+                className="mt-4"
+                render={
+                  <a
+                    href={`mailto:${companyDetails.email}?subject=${encodeURIComponent("Quote request: " + opportunity.label)}`}
+                    aria-label={`Request a quote for ${opportunity.label}`}
+                  />
+                }
+                nativeButton={false}
+              >
+                <Mail data-icon="inline-start" />
+                Request a Quote
+              </Button>
             </InfoCard>
           ))}
         </div>
