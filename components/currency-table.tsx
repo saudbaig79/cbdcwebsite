@@ -23,9 +23,9 @@ export function CurrencyTable({ currencies }: { currencies: Currency[] }) {
       .filter((c) => (status === "all" ? true : c.status === status))
       .filter((c) =>
         q
-          ? c.digitalCurrency.toLowerCase().includes(q) ||
-            c.country.toLowerCase().includes(q) ||
-            c.centralBank.toLowerCase().includes(q)
+          ? [c.digitalCurrency, c.country, c.centralBank].some((field) =>
+              String(field ?? "").toLowerCase().includes(q),
+            )
           : true,
       )
       .sort((a, b) => a.country.localeCompare(b.country))
@@ -84,12 +84,12 @@ export function CurrencyTable({ currencies }: { currencies: Currency[] }) {
                 </TableCell>
                 <TableCell className="truncate font-medium">
                   <Link href={`/currency/${c.tag}`} className="hover:text-primary">
-                    {c.digitalCurrency}
+                    {c.digitalCurrency ?? "Name not listed"}
                   </Link>
                 </TableCell>
                 <TableCell className="truncate text-muted-foreground">{c.country}</TableCell>
                 <TableCell className="hidden truncate text-muted-foreground md:table-cell">
-                  {c.centralBank}
+                  {c.centralBank ?? "—"}
                 </TableCell>
                 <TableCell>
                   <StatusBadge status={c.status} />

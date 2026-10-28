@@ -7,16 +7,16 @@ export function SponsorSection() {
         </h2>
         <div className="grid gap-3 text-sm leading-7 text-muted-foreground">
           <p>
-            We offer display advertising and sponsored content to organisations relevant to our readers.
+            CBDC LLC offers display advertising and sponsored content opportunities to organisations whose products or services are relevant to our readers.
           </p>
           <p>
-            Sponsored content is always clearly labelled and does not influence our research or tracker data.
+            Sponsored content is clearly labelled. Advertising and sponsorship do not determine or influence the classifications, status assessments or research conclusions presented in the CBDC World Tracker.
           </p>
           <p>
-            To enquire about advertising or sponsorship opportunities, contact us at{" "}
+            Commercial enquiries:{" "}
             <a className="font-medium text-primary underline-offset-4 hover:underline" href="mailto:info@cbdc.ac">
               info@cbdc.ac
-            </a>.
+            </a>
           </p>
         </div>
       </div>

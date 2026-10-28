@@ -23,7 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
   const currency = await fetchCurrencyByTag(tag).catch(() => null)
   if (!currency) return { title: "Currency not found — CBDC LLC" }
   return {
-    title: `${currency.digitalCurrency} (${currency.country}) — CBDC LLC`,
+    title: currency.digitalCurrency
+      ? `${currency.digitalCurrency} (${currency.country}) — CBDC LLC`
+      : `${currency.country} CBDC project — CBDC LLC`,
     description: currency.description?.slice(0, 160),
   }
 }
@@ -80,7 +82,7 @@ export default async function CurrencyDetailPage({ params }: { params: Promise<{
         <div>
           <div className="mb-2 flex items-center gap-3">
             <h1 className="text-balance text-3xl font-semibold tracking-tight text-foreground">
-              {currency.digitalCurrency}
+              {currency.digitalCurrency ?? `${currency.country} CBDC project`}
             </h1>
             <StatusBadge status={currency.status} />
           </div>

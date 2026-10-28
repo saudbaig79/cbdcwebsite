@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowUpRight, Landmark, Newspaper, History } from "lucide-react"
 import { fetchCurrencies, fetchHistory, fetchNews, formatDate, STATUS_LIST, type CbdcStatus } from "@/lib/cbdc-api"
+import { getMappedCountryNames } from "@/lib/country-map"
 import { WorldMap } from "@/components/world-map"
 import { StatusChart } from "@/components/status-chart"
 import { StatusBadge } from "@/components/status-badge"
@@ -26,7 +27,7 @@ export async function TrackerDashboard() {
     {} as Record<CbdcStatus, number>,
   )
 
-  const countryCount = new Set(currencies.map((c) => c.country)).size
+  const countryCount = getMappedCountryNames(currencies).length
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
@@ -39,8 +40,11 @@ export async function TrackerDashboard() {
           Today&apos;s Central Bank Digital Currencies Status
         </h1>
         <p className="max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">
-          Monitoring {currencies.length} CBDC projects across {countryCount} countries — from early research to
-          full-scale launch.
+          Monitoring {currencies.length} unique CBDC project records across {countryCount} mapped country and territory
+          names — from early research to full-scale launch.
+        </p>
+        <p className="max-w-2xl text-xs leading-relaxed text-muted-foreground">
+          Counts use unique project tags from the live <a className="font-medium text-primary underline-offset-4 hover:underline" href="https://cbdctracker.org/api/currencies" target="_blank" rel="noopener noreferrer">CBDC Tracker API</a>. Joint projects may map to multiple places; regional and currency-union labels are excluded from the country/territory total.
         </p>
       </section>
 

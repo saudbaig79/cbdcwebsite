@@ -21,9 +21,9 @@ export interface Currency {
   created: number
   country: string
   countries: CurrencyCountry[]
-  centralBank: string
+  centralBank?: string
   announcementYear: number
-  digitalCurrency: string
+  digitalCurrency?: string
   status: CbdcStatus
   type: string
   structure?: string
@@ -91,8 +91,18 @@ async function upstreamFetch<T>(path: string, revalidate: number): Promise<T> {
   return res.json()
 }
 
-export function fetchCurrencies() {
-  return upstreamFetch<Currency[]>("/currencies", 300)
+export function uniqueCurrenciesByTag(currencies: readonly Currency[]): Currency[] {
+  const seen = new Set<string>()
+  return currencies.filter((currency) => {
+    if (seen.has(currency.tag)) return false
+    seen.add(currency.tag)
+    return true
+  })
+}
+
+export async function fetchCurrencies() {
+  const currencies = await upstreamFetch<Currency[]>("/currencies", 300)
+  return uniqueCurrenciesByTag(currencies)
 }
 
 export async function fetchCurrencyByTag(tag: string): Promise<Currency | null> {
