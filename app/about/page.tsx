@@ -16,7 +16,7 @@ const sectionLinks = [
   { href: "#important", label: "Important" },
   { href: "#company-details", label: "Company details" },
   { href: "#services", label: "Services & funding" },
-  { href: "#sponsors", label: "Our sponsors" },
+  { href: "#advertising", label: "Advertise or sponsor" },
 ]
 
 const services = [
@@ -133,6 +133,11 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="mt-4 rounded-xl border border-border/80 bg-card/50 px-4 py-3">
+            <p className="text-sm leading-6 text-muted-foreground">
+              Sponsored content is clearly labelled and does not influence the tracker data or our independent research.
+            </p>
           </div>
         </ContentSection>
       </div>

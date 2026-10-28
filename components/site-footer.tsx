@@ -4,7 +4,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border/80 bg-card/30">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[minmax(16rem,0.85fr)_minmax(0,1.5fr)] lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-[minmax(16rem,0.85fr)_minmax(0,1.5fr)] lg:items-start">
           <div className="grid gap-4">
             <div className="flex items-center gap-3">
               <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary" aria-hidden="true">
@@ -40,12 +40,15 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="grid gap-4 border-t border-border pt-6 text-xs leading-6 text-muted-foreground sm:grid-cols-2 lg:border-l lg:border-t-0 lg:py-2 lg:pl-8">
-            <p>
+          <div className="grid gap-3 border-t border-border pt-6 text-sm leading-6 text-muted-foreground lg:border-l lg:border-t-0 lg:py-0 lg:pl-8">
+            <p className="max-w-2xl">
               CBDC is an independent information resource. It is not affiliated with any central bank or government. Content is general information, not financial, investment or legal advice.
             </p>
-            <p>
+            <p className="max-w-2xl font-medium text-foreground">
               CBDC LLC does not issue, sell, exchange, hold or transmit any digital currency, cryptoasset or token, and does not handle client funds.
+            </p>
+            <p className="mt-1 border-t border-border pt-3 font-mono text-xs text-muted-foreground">
+              © 2026 CBDC LLC
             </p>
           </div>
         </div>
