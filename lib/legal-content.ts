@@ -35,7 +35,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Information this site handles",
         paragraphs: [
-          "If you email us, we receive the sender address, any name you include, the message, attachments, and email headers needed to respond. This project has no account, sign-in, or contact-form system. The watchlist interface saves project tags in your browser; it does not send a personal profile to the site's API.",
+          "If you email us, we receive the sender address, any name you include, the message, attachments, and email headers needed to respond. This project has no account, sign-in, contact form, newsletter signup, or working email-alert signup. The watchlist interface saves project tags in your browser and does not transmit those tags to the site's API. Its email-alert area states that alerts are unavailable and does not collect an address.",
           "The hosting platform may process technical request information such as your IP address, requested URL, request time, browser and device headers, referrer, and security or error signals to deliver and protect pages.",
         ],
       },
@@ -50,7 +50,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Analytics",
         paragraphs: [
-          "The source includes @vercel/analytics/next and renders Vercel Analytics only when the application runs in production mode. No custom analytics events or separate advertising analytics SDK were found in this project. Vercel describes Web Analytics as cookieless and uses a transient, request-derived visitor identifier that changes daily to report page views and aggregate referrer, device, browser, and location information. Analytics-event retention is controlled by the Vercel account, plan, and project settings; the active production settings could not be confirmed here.",
+          "The source includes @vercel/analytics/next and renders Vercel Analytics only when the application runs in production mode. The currently live www.cbdc.ac page was observed requesting its Insights script through the same-origin path /_vercel/insights/script.js. No custom analytics events or separate advertising analytics SDK were found in this project. Vercel describes Web Analytics as cookieless and uses a transient, request-derived visitor identifier that changes daily to report page views and aggregate referrer, device, browser, and location information. Analytics-event retention is controlled by the Vercel account, plan, and project settings; the active production settings could not be confirmed here.",
         ],
       },
       {
@@ -59,7 +59,7 @@ export const legalDocuments: LegalDocument[] = [
           "The watchlist stores selected project tags in the browser's localStorage under the cbdc-watchlist key. This is functional browser storage, not a cookie; it remains until you remove the entries or clear this site's browser data. The current watchlist code does not transmit those saved tags to the site's server.",
           "The interactive map requests a static country-boundary file from cdn.jsdelivr.net when the map is displayed. This is a direct browser request, so the CDN receives ordinary connection metadata such as IP address, browser information, and referrer. The map uses static boundaries; the site does not request device geolocation or map tiles.",
           "Pages with an embedded YouTube video load the player from youtube-nocookie.com in YouTube's Privacy Enhanced Mode. This mode reduces personalization based on embedded views, but it does not prevent the player from making a third-party request or receiving connection, browser/device, referrer, and playback information. The iframe is lazy-loaded but is not gated by an on-site consent control; YouTube may use its own cookies or storage under its policies.",
-          "Some news records include image URLs supplied with the source data. Because this project serves those images directly from their source URLs, the relevant image host can receive a browser request and ordinary connection metadata. The host may vary by article. External source links otherwise receive a request only if you choose to open them.",
+          "Some news records include image URLs supplied with the source data. The current live site serves thumbnails directly from cbdctracker.org/images; this project also loads feed-supplied image URLs directly in the browser, so the image host receives ordinary request metadata such as IP address, browser/device information, and the requested image path. The host may vary if feed data changes. External source links otherwise receive a request only if you choose to open them.",
         ],
       },
       {
@@ -121,7 +121,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "What the code currently uses",
         paragraphs: [
-          "The code reviewed does not set a first-party cookie or provide a sign-in/session system. It does use browser localStorage for the watchlist, includes Vercel Analytics in production, embeds YouTube video, and loads map and article-image resources from third-party hosts. The linked Vercel project has no production deployment or domain assignment for www.cbdc.ac, so the live deployment's provider settings could not be independently checked.",
+          "The code reviewed does not set a first-party cookie or provide a sign-in/session system. It uses browser localStorage for the watchlist, includes Vercel Analytics only in production, embeds YouTube video, and loads map and article-image resources from other providers. The currently live www.cbdc.ac page requests Vercel's Insights script through the same-origin path /_vercel/insights/script.js. The linked Vercel project has no production deployment or domain assignment for www.cbdc.ac, so the live deployment's provider settings could not be independently checked.",
         ],
       },
       {
@@ -133,7 +133,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Analytics",
         paragraphs: [
-          "Vercel Analytics is rendered only in production mode. Vercel describes Web Analytics as cookieless and uses a transient, request-derived visitor identifier that changes daily for aggregate visitor and page-view reporting. Analytics-event retention depends on the active Vercel account, plan, and settings; no on-site analytics preference control is implemented in this project.",
+          "Vercel Analytics is rendered only in production mode. The currently live www.cbdc.ac page requests its Insights script through the same-origin path /_vercel/insights/script.js. Vercel describes Web Analytics as cookieless and uses a transient, request-derived visitor identifier that changes daily for aggregate visitor and page-view reporting. Analytics-event retention depends on the active Vercel account, plan, and settings; no on-site analytics preference control is implemented in this project.",
         ],
       },
       {
@@ -141,7 +141,7 @@ export const legalDocuments: LegalDocument[] = [
         bullets: [
           "The YouTube iframe is loaded lazily from youtube-nocookie.com in Privacy Enhanced Mode and is not gated by an on-site consent control. The mode reduces personalization from embedded views, but is not a promise of zero data processing or zero cookies; YouTube may receive connection, browser/device, referrer, and playback information and may use its own storage under its policies.",
           "The interactive map fetches static boundary data from cdn.jsdelivr.net directly in the browser. This is a third-party request, not a cookie; the CDN receives ordinary connection metadata. The map does not use device geolocation or map tiles.",
-          "Some news records provide image URLs from external sources. The browser loads those images directly, and the source host may vary by article and receive standard request metadata.",
+          "News thumbnails on the current live site are served directly from cbdctracker.org/images. The browser requests these image URLs directly, so the image host receives standard connection metadata and the requested image path; the host may vary if the upstream feed changes. This is a third-party content request, not a cookie.",
         ],
       },
       {
