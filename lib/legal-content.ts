@@ -42,7 +42,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Hosting and service providers",
         paragraphs: [
-          "Vercel is the deployment platform configured for this Next.js project, and public DNS for cbdc.ac and www.cbdc.ac routes through Vercel. The linked project has a Ready production deployment with serverless functions shown in region iad1, but its Vercel aliases do not include either public domain. The public site therefore could not be matched to this project's deployment, so its hosting region and exact log-retention settings remain unverified. When Vercel serves the site, it processes connection and request information needed for delivery, reliability, and security; log retention depends on the active project, plan, and settings.",
+          "Vercel is the deployment platform configured for this Next.js project, and public DNS for the site's connected domains routes through Vercel. The linked project has a Ready production deployment with serverless functions shown in region iad1, but its Vercel aliases do not include the site's public domains. The public site therefore could not be matched to this project's deployment, so its hosting region and exact log-retention settings remain unverified. When Vercel serves the site, it processes connection and request information needed for delivery, reliability, and security; log retention depends on the active project, plan, and settings.",
           "The site requests public currency, country, history, and news data from the CBDC Tracker API at cbdctracker.org/api. The current code makes those requests from the app server. The API provider receives server request metadata, but the site does not forward a visitor's browser IP address, email, or watchlist to that API in this code path.",
           "Public MX records for cbdc.ac point to mx1.privateemail.com and mx2.privateemail.com, the routing used by Namecheap Private Email. When you email info@cbdc.ac, that mail provider handles the message and recipient address. Mailbox settings and retention are not visible in the website source.",
         ],
@@ -50,7 +50,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Analytics",
         paragraphs: [
-          "The source includes @vercel/analytics/next and renders Vercel Analytics only when the application runs in production mode. The currently live www.cbdc.ac page was observed requesting its Insights script through the same-origin path /_vercel/insights/script.js. No custom analytics events or separate advertising analytics SDK were found in this project. Vercel describes Web Analytics as cookieless and uses a transient, request-derived visitor identifier that changes daily to report page views and aggregate referrer, device, browser, and location information. Analytics-event retention is controlled by the Vercel account, plan, and project settings; the active production settings could not be confirmed here.",
+          "The source includes @vercel/analytics/next and renders Vercel Analytics only when the application runs in production mode. The currently live public site was observed requesting its Insights script through the same-origin path /_vercel/insights/script.js. No custom analytics events or separate advertising analytics SDK were found in this project. Vercel describes Web Analytics as cookieless and uses a transient, request-derived visitor identifier that changes daily to report page views and aggregate referrer, device, browser, and location information. Analytics-event retention is controlled by the Vercel account, plan, and project settings; the active production settings could not be confirmed here.",
         ],
       },
       {
@@ -121,7 +121,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "What the code currently uses",
         paragraphs: [
-          "The code reviewed does not set a first-party cookie or provide a sign-in/session system. It uses browser localStorage for the watchlist, includes Vercel Analytics only in production, embeds YouTube video, and loads map and article-image resources from other providers. The currently live www.cbdc.ac page requests Vercel's Insights script through the same-origin path /_vercel/insights/script.js. The linked project has a Ready production deployment, but its Vercel aliases do not include cbdc.ac or www.cbdc.ac; the public domain's provider settings could not be independently confirmed from this project.",
+          "The code reviewed does not set a first-party cookie or provide a sign-in/session system. It uses browser localStorage for the watchlist, includes Vercel Analytics only in production, embeds YouTube video, and loads map and article-image resources from other providers. The currently live public site requests Vercel's Insights script through the same-origin path /_vercel/insights/script.js. The linked project has a Ready production deployment, but its Vercel aliases do not include the domains serving the public site; the public site's provider settings could not be independently confirmed from this project.",
         ],
       },
       {
@@ -133,7 +133,7 @@ export const legalDocuments: LegalDocument[] = [
       {
         heading: "Analytics",
         paragraphs: [
-          "Vercel Analytics is rendered only in production mode. The currently live www.cbdc.ac page requests its Insights script through the same-origin path /_vercel/insights/script.js. Vercel describes Web Analytics as cookieless and uses a transient, request-derived visitor identifier that changes daily for aggregate visitor and page-view reporting. Analytics-event retention depends on the active Vercel account, plan, and settings; no on-site analytics preference control is implemented in this project.",
+          "Vercel Analytics is rendered only in production mode. The currently live public site requests its Insights script through the same-origin path /_vercel/insights/script.js. Vercel describes Web Analytics as cookieless and uses a transient, request-derived visitor identifier that changes daily for aggregate visitor and page-view reporting. Analytics-event retention depends on the active Vercel account, plan, and settings; no on-site analytics preference control is implemented in this project.",
         ],
       },
       {

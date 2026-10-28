@@ -67,9 +67,17 @@ export default function AboutPage() {
       <div id="founder" className="scroll-mt-24">
         <ContentSection title="Founder and Managing Member">
           <InfoCard label={companyDetails.founderTitle} title={companyDetails.founderName}>
-            <p>
-              {companyDetails.founderName} is the Founder and Managing Member of {companyDetails.name}.
-            </p>
+            <div className="space-y-4">
+              <p>
+                Tristan Marsh is the founder and managing member of CBDC LLC. He established the company to create a clear, independent public resource on central bank digital currencies at a time when official explanations were often technical and fragmented.
+              </p>
+              <p>
+                He oversees the research direction, editorial standards and day-to-day operation of the CBDC World Tracker and related guides. His focus is on translating complex policy and technical developments into plain-English material that individuals, businesses and journalists can use without specialised knowledge.
+              </p>
+              <p>
+                Marsh is responsible for maintaining the independence of the tracker’s classifications and ensuring that commercial relationships never influence research conclusions. He works remotely and directs all content and methodology decisions for the company.
+              </p>
+            </div>
           </InfoCard>
         </ContentSection>
       </div>
