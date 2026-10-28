@@ -117,6 +117,14 @@ export default async function HomePage() {
                     marked “Launched.” Project-level status totals and the Atlantic Council&apos;s country-and-currency-union
                     count use different scopes.
                   </p>
+                  <a
+                    className="mt-2 inline-flex w-fit text-xs font-medium text-primary underline-offset-4 hover:underline"
+                    href="https://cbdctracker.org/api/currencies"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Source: CBDC Tracker API
+                  </a>
                 ) : (
                   <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                     Live project totals are temporarily unavailable.
