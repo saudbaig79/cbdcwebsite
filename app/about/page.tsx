@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 
 const sectionLinks = [
   { href: "#founder", label: "Founder and Managing Member" },
+  { href: "#ubo", label: "Ultimate Beneficial Owner (UBO)" },
   { href: "#our-role", label: "Our role" },
   { href: "#important", label: "Important" },
   { href: "#company-details", label: "Company details" },
@@ -79,6 +80,14 @@ export default function AboutPage() {
               </p>
             </div>
           </InfoCard>
+        </ContentSection>
+      </div>
+
+      <div id="ubo" className="scroll-mt-24">
+        <ContentSection title="Ultimate Beneficial Owner (UBO)">
+          <p>
+            Tristan Marsh is the ultimate beneficial owner of CBDC LLC and serves as its Founder and Managing Member.
+          </p>
         </ContentSection>
       </div>
 
